@@ -1,0 +1,1275 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<workbook version='8.2' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <!-- build 8100.14.0408.1805                -->
+  <preferences>
+  </preferences>
+  <datasources>
+    <datasource caption='dated_commands (udc-data.udc)' inline='true' name='bigquery.41899.686085347224' version='8.2'>
+      <connection CATALOG='udc-data' Catalog='' ClientId='' ClientSecret='' EXECCATALOG='nifty-expanse-706' authentication='yes' bq_schema='udc' class='bigquery' connection-dialect='google-bql' odbc-connect-string-extras='Description=Sample Simba BigQuery DSN' odbc-driver='Simba BigQuery ODBC Driver' odbc-dsn='' project='udc-data' server-oauth='' table='dated_commands' username='ermurph3@ncsu.edu'>
+        <relation name='dated_commands' table='[udc-data:udc].[dated_commands]' type='table' />
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='integer' name='[userId]' role='dimension' type='ordinal'>
+      </column>
+      <layout dim-ordering='alphabetic' dim-percentage='0.5' measure-ordering='alphabetic' measure-percentage='0.4' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='how some people use JDT'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='dated_commands (udc-data.udc)' name='bigquery.41899.686085347224' />
+          </datasources>
+          <datasource-dependencies datasource='bigquery.41899.686085347224'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column datatype='string' name='[description]' role='dimension' type='nominal'>
+            </column>
+            <column-instance column='[description]' derivation='None' name='[none:description:nk]' pivot='key' type='nominal' />
+            <column-instance column='[userId]' derivation='None' name='[none:userId:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column datatype='integer' name='[userId]' role='dimension' type='ordinal'>
+            </column>
+          </datasource-dependencies>
+          <filter class='categorical' column='[bigquery.41899.686085347224].[none:description:nk]'>
+            <groupfilter expression='CONTAINS(LOWER([description]), LOWER(&apos;jdt&apos;))' function='filter' user:ui-enumeration='inclusive' user:ui-pattern-include-all-when-empty='true' user:ui-pattern_text='jdt' user:ui-pattern_type='contains'>
+              <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ajdt.launching.runShortcut.run&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ajdt.ui.pushin&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ant.ui.antShortcut.debug&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ant.ui.antShortcut.run&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.birt.report.designer.ui.command.applyStyleCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.birt.report.designer.ui.command.copyAction&quot;' />
+                <groupfilter from='&quot;org.eclipse.birt.report.designer.ui.command.cutCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.birt.report.designer.ui.command.deleteCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.birt.report.designer.ui.command.editBindingCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.birt.report.designer.ui.command.refreshLibraryCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.make.ui.edit.text.makefile.opendecl&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.make.ui.targetBuildCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.make.ui.targetCreateCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.cdt.ui.edit.open.call.hierarchy&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.cdt.ui.edit.open.type.hierarchy&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.ui.edit.opendecl&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.ui.edit.text.c.add.block.comment&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.ui.edit.text.c.add.include&quot;' />
+                <groupfilter from='&quot;org.eclipse.cdt.ui.edit.text.c.find.word&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.cdt.ui.edit.text.c.indent&quot;' />
+                <groupfilter from='&quot;org.eclipse.cdt.ui.edit.text.c.toggle.comment&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.cdt.ui.edit.text.c.toggleMarkOccurrences&quot;' />
+                <groupfilter from='&quot;org.eclipse.cdt.ui.edit.text.rename.element&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.cdt.ui.hover.forwardMacroExpansion&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.ui.navigate.opentype&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.ui.refactor.extract.function&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.cdt.ui.refactor.getters.and.setters&quot;' />
+                <groupfilter from='&quot;org.eclipse.cdt.ui.refactor.implement.method&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.cdt.ui.search.findrefs&quot;' />
+                <groupfilter from='&quot;org.eclipse.compare.copyAllLeftToRight&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.compare.selectPreviousChange&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.contribution.xref.show.xref&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.datatools.connectivity.commands.addprofile&quot;' />
+                <groupfilter from='&quot;org.eclipse.datatools.connectivity.commands.import&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.datatools.enablement.sybase.asa.schemaobjecteditor.examples.tableschemaeditor.pastecolumn&quot;' />
+                <groupfilter from='&quot;org.eclipse.datatools.sqltools.result.removeAllInstances&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.datatools.sqltools.sqleditor.DMLDialogSelectionAction&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.datatools.sqltools.sqleditor.ExecuteSQLAction&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.datatools.sqltools.sqleditor.ExecuteSelectionAction&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.datatools.sqltools.sqleditor.toggleCommentAction&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.datatools.sqltools.sqlscrapbook.commands.openscrapbook&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.debug.ui.DebugPerspective&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.debug.ui.actions.WatchCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.debug.ui.commands.DebugLast&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.debug.ui.commands.OpenRunConfigurations&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.debug.ui.commands.RemoveAllBreakpoints&quot;' />
+                <groupfilter from='&quot;org.eclipse.debug.ui.commands.Resume&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.debug.ui.commands.ToggleWatchpoint&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.debug.ui.commands.eof&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.dltk.ui.edit.text.script.comment&quot;' />
+                <groupfilter from='&quot;org.eclipse.dltk.ui.edit.text.script.open.editor&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.dltk.ui.edit.text.script.open.type.hierarchy&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.dltk.ui.edit.text.script.show.outline&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ecf.presence.ui.commands.browse&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.emf.codegen.ecore.ui.Generate&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.equinox.p2.ui.sdk.install&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.equinox.p2.ui.sdk.update&quot;' />
+                <groupfilter from='&quot;org.eclipse.gef.zoom_in&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.gmf.ValidateAction&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.gmf.xpand.editor.insertRT&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.help.ui.closeTray&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.debug.ui.commands.AddClassPrepareBreakpoint&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.debug.ui.commands.Inspect&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.debug.ui.commands.StepIntoSelection&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.debug.ui.javaAppletShortcut.run&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.debug.ui.localJavaShortcut.debug&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.junit.junitShortcut.run&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.JavaBrowsingPerspective&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.JavaPerspective&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.correction.assignToField.assist&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.correction.assignToLocal.assist&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.correction.renameInFile.assist&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.add.block.comment&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.clean.up&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.convert.anonymous.to.nested&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.inline&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.introduce.indirection&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.open.hierarchy&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.open.super.implementation&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.pull.up&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.edit.text.java.quick.format&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.rename.element&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.search.declarations.in.project&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.search.declarations.in.workspace&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.edit.text.java.search.implementors.in.project&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.search.method.exits&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.search.occurrences.in.file.quickMenu&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.search.references.in.hierarchy&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.search.references.in.workspace&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.select.enclosing&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.self.encapsulate.field&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.edit.text.java.show.outline&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.edit.text.java.toggleMarkOccurrences&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.edit.text.remove.occurrence.annotations&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.generate.javadoc&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jdt.ui.navigate.java.open.structure&quot;' />
+                <groupfilter from='&quot;org.eclipse.jdt.ui.navigate.open.type&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jdt.ui.refactor.migrate.jar&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jpt.ui.persistentAttributeMapAs&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jst.jsp.ui.refactor.rename&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jwt.we.gridVisibleCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jwt.we.newApplicationCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.jwt.we.newDataCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.jwt.we.openUriCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.jwt.we.startCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ltk.ui.refactor.apply.refactoring.script&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ltk.ui.refactor.create.refactoring.script&quot;' />
+                <groupfilter from='&quot;org.eclipse.ltk.ui.refactoring.commands.deleteResources&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ltk.ui.refactoring.commands.renameResource&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.context.ui.commands.interest.decrement&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.context.ui.commands.open.context.dialog&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.discovery.ui.discoveryWizardCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.java.ui.editor.folding.auto&quot;' />
+                <groupfilter from='&quot;org.eclipse.mylyn.tasks.bugs.commands.newTaskFromMarker&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.mylyn.tasks.ui.command.addTaskRepository&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.tasks.ui.command.attachment.openInBrowser&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.tasks.ui.command.deactivateAllTasks&quot;' />
+                <groupfilter from='&quot;org.eclipse.mylyn.tasks.ui.command.goToNextUnread&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.mylyn.tasks.ui.command.markTaskComplete&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.tasks.ui.command.markTaskRead&quot;' />
+                <groupfilter from='&quot;org.eclipse.mylyn.tasks.ui.command.new.local.task&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.mylyn.tasks.ui.command.openRemoteTask&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.tasks.ui.command.openTask&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.tasks.ui.command.searchForTask&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.mylyn.wikitext.ui.convertToHtmlCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.pde.ui.EquinoxLaunchShortcut.run&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.pde.ui.edit.text.format&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.pde.ui.junitWorkbenchShortcut.run&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.pde.ui.openPluginArtifact&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.pde.ui.runtimeWorkbenchShortcut.debug&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.pde.ui.runtimeWorkbenchShortcut.run&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.photran.ui.OpenDeclarationCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.php.deubg.ui.phpexeShortcut.debug&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.php.server.ui.phpServerShortcut.run&quot;' />
+                <groupfilter from='&quot;org.eclipse.php.ui.edit.text.OpenDeclaration&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.php.ui.edit.text.php.open.call.hierarchy&quot;' />
+                <groupfilter from='&quot;org.eclipse.php.ui.edit.text.php.open.type.hierarchy&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.php.ui.edit.text.show.phpdoc&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.php.ui.edit.text.toggleMarkOccurrences&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.php.ui.navigate.open.method&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.php.ui.navigate.open.type&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.quickdiff.toggle&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.rap.ui.intro.installTarget&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.rap.ui.launch.RAPLaunchShortcut.run&quot;' />
+                <groupfilter from='&quot;org.eclipse.rse.terminals.ui.actions.LaunchTerminalCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.search.ui.performTextSearchWorkspace&quot;' />
+                <groupfilter from='&quot;org.eclipse.team.cvs.ui.GenerateDiff&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.team.cvs.ui.updateSwitch&quot;' />
+                <groupfilter from='&quot;org.eclipse.team.svn.ui.command.AddToSVNCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.team.svn.ui.command.CommitCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.team.svn.ui.command.CompareWithBranchCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.team.svn.ui.command.CompareWithRevisionCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.team.svn.ui.command.CompareWithWorkingCopyCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.team.svn.ui.command.CreatePatchCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.team.svn.ui.command.EditPropertiesCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.team.svn.ui.command.ExportCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.team.svn.ui.command.MergeCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.team.svn.ui.command.ReplaceWithLatestRevisionCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.team.svn.ui.command.ReplaceWithRevisionCommand&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.team.svn.ui.command.RevertCommand&quot;' />
+                <groupfilter from='&quot;org.eclipse.team.svn.ui.command.SetPropertyCommand&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.team.ui.synchronizeLast&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.ToggleCoolbarAction&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.cheatsheets.openCheatSheet&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.addBookmark&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.copy&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.cut&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.delete&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.findIncremental&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.findNext&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.findPrevious&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.findReplace&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.move&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.paste&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.redo&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.rename&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.selectAll&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.clear.mark&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.contentAssist.proposals&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.copyLineDown&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.copyLineUp&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.cut.line.to.end&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.delete.line&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.delete.line.to.end&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.deletePreviousWord&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.delimiter.unix&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.folding.toggle&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.goto.columnNext&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.goto.lineEnd&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.goto.lineStart&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.goto.textStart&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.goto.wordNext&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.goto.wordPrevious&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.gotoLastEditPosition&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.hippieCompletion&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.scroll.lineUp&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.select.lineEnd&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.select.lineStart&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.select.textEnd&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.text.select.textStart&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.select.wordNext&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.toggleBlockSelectionMode&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.edit.text.toggleInsertMode&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.edit.text.upperCase&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.edit.undo&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.editors.lineNumberToggle&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.externalTools.commands.OpenExternalToolsConfigurations&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.file.close&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.file.closeAll&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.file.exit&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.file.newQuickMenu&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.file.print&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.file.saveAs&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.help.aboutAction&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.help.dynamicHelp&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.ide.configureFilters&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.ide.deleteCompleted&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.navigate.back&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.navigate.collapseAll&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.navigate.forwardHistory&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.navigate.nextSubTab&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.navigate.openResource&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.navigate.previousSubTab&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.navigate.selectWorkingSets&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.navigate.showInQuickMenu&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.newWizard&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.part.nextPage&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.perspectives.showPerspective&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.project.properties&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.update.findAndInstallUpdates&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.window.customizePerspective&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.window.lockToolBar&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.window.maximizePart&quot;' />
+                <groupfilter from='&quot;org.eclipse.ui.window.newEditor&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.ui.window.showViewMenu&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.ui.window.switchToEditor&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.JavaPerspective&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.correction.assignToField.assist&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.add.javadoc.comment&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.format&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.open.call.hierarchy&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.open.editor&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.open.hierarchy&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.remove.block.comment&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.rename.element&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.search.declarations.in.workspace&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.search.references.in.project&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.show.outline&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.edit.text.java.toggle.comment&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.navigate.java.open.structure&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.navigate.open.type&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.jsdt.ui.refactor.create.refactoring.script&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.server.debug&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.server.launchShortcut.debug&quot;' />
+                <groupfilter from='&quot;org.eclipse.wst.server.launchShortcut.run&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.wst.sse.ui.generate.xml&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.sse.ui.open.file.from.source&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.sse.ui.remove.block.comment&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.sse.ui.search.find.occurrences&quot;' />
+                <groupfilter from='&quot;org.eclipse.wst.sse.ui.structure.select.enclosing&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.wst.sse.ui.toggle.comment&quot;' />
+                <groupfilter from='&quot;org.eclipse.wst.xml.ui.disable.grammar.constraints&quot;' function='range' level='[none:description:nk]' to='&quot;org.eclipse.wst.xml.ui.reload.dependecies&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.xsd.ui.refactor.makeTypeGlobal&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;org.eclipse.wst.xsd.ui.refactor.rename.element&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;sed.tabletree.collapseAll&quot;' />
+                <groupfilter function='member' level='[none:description:nk]' member='&quot;sed.tabletree.expandAll&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='computed' column='[bigquery.41899.686085347224].[none:description:nk]' direction='DESC' using='[bigquery.41899.686085347224].[sum:Number of Records:qk]'>
+          </sort>
+          <filter class='categorical' column='[bigquery.41899.686085347224].[none:userId:ok]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:userId:ok]' member='3666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='6663' />
+              <groupfilter function='member' level='[none:userId:ok]' member='8666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='9666' />
+              <groupfilter from='16660' function='range' level='[none:userId:ok]' to='16669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='17666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='21666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='28666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='29666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='34666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='36660' />
+              <groupfilter function='member' level='[none:userId:ok]' member='37666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='39666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='40666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='42666' />
+              <groupfilter from='46662' function='range' level='[none:userId:ok]' to='46669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='51666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='56663' />
+              <groupfilter function='member' level='[none:userId:ok]' member='59666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='61666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='65666' />
+              <groupfilter from='66602' function='range' level='[none:userId:ok]' to='66699' />
+              <groupfilter function='member' level='[none:userId:ok]' member='70666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='75666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='76661' />
+              <groupfilter function='member' level='[none:userId:ok]' member='86661' />
+              <groupfilter function='member' level='[none:userId:ok]' member='86669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='96665' />
+              <groupfilter function='member' level='[none:userId:ok]' member='96666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='98666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='103666' />
+              <groupfilter from='106660' function='range' level='[none:userId:ok]' to='106665' />
+              <groupfilter function='member' level='[none:userId:ok]' member='108666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='109666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='116664' />
+              <groupfilter function='member' level='[none:userId:ok]' member='120666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='125666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='126660' />
+              <groupfilter function='member' level='[none:userId:ok]' member='129666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='135666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='136665' />
+              <groupfilter function='member' level='[none:userId:ok]' member='139666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='146669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='148666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='156661' />
+              <groupfilter function='member' level='[none:userId:ok]' member='156665' />
+              <groupfilter function='member' level='[none:userId:ok]' member='159666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='161666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='163666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='164666' />
+              <groupfilter from='166607' function='range' level='[none:userId:ok]' to='166695' />
+              <groupfilter function='member' level='[none:userId:ok]' member='168666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='169666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='174666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='175666' />
+              <groupfilter from='176662' function='range' level='[none:userId:ok]' to='176667' />
+              <groupfilter function='member' level='[none:userId:ok]' member='177666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='178666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='180666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='181666' />
+              <groupfilter from='186662' function='range' level='[none:userId:ok]' to='186666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='187666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='189666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='190666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='194666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='196669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='206660' />
+              <groupfilter function='member' level='[none:userId:ok]' member='206662' />
+              <groupfilter function='member' level='[none:userId:ok]' member='208666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='210666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='213666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='216663' />
+              <groupfilter function='member' level='[none:userId:ok]' member='224666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='226660' />
+              <groupfilter function='member' level='[none:userId:ok]' member='226668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='229666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='231666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='234666' />
+              <groupfilter from='236663' function='range' level='[none:userId:ok]' to='236668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='239666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='241666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='242666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='244666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='246662' />
+              <groupfilter function='member' level='[none:userId:ok]' member='246667' />
+              <groupfilter function='member' level='[none:userId:ok]' member='248666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='255666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='256662' />
+              <groupfilter function='member' level='[none:userId:ok]' member='256668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='258666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='261666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='265666' />
+              <groupfilter from='266603' function='range' level='[none:userId:ok]' to='266698' />
+              <groupfilter function='member' level='[none:userId:ok]' member='269666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='270666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='271666' />
+              <groupfilter from='276660' function='range' level='[none:userId:ok]' to='276666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='277666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='278666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='279666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='286664' />
+              <groupfilter function='member' level='[none:userId:ok]' member='289666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='292666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='294666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='295666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='296663' />
+              <groupfilter function='member' level='[none:userId:ok]' member='296669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='301666' />
+              <groupfilter from='306660' function='range' level='[none:userId:ok]' to='306667' />
+              <groupfilter function='member' level='[none:userId:ok]' member='309666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='310666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='313666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='315666' />
+              <groupfilter from='316660' function='range' level='[none:userId:ok]' to='316669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='318666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='319666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='321666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='322666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='324666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='325666' />
+              <groupfilter from='326660' function='range' level='[none:userId:ok]' to='326669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='328666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='329666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='332666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='333666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='334666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='335666' />
+              <groupfilter from='336661' function='range' level='[none:userId:ok]' to='336669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='337666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='338666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='339666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='340666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='341666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='342666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='343666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='344666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='345666' />
+              <groupfilter from='346660' function='range' level='[none:userId:ok]' to='346669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='347666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='348666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='349666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='351666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='352666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='353666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='354666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='355666' />
+              <groupfilter from='356660' function='range' level='[none:userId:ok]' to='356669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='357666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='358666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='359666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='360666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='361666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='362666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='363666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='364666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='365666' />
+              <groupfilter from='366600' function='range' level='[none:userId:ok]' to='366699' />
+              <groupfilter function='member' level='[none:userId:ok]' member='367666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='369666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='370666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='371666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='372666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='373666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='374666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='375666' />
+              <groupfilter from='376660' function='range' level='[none:userId:ok]' to='376669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='377666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='378666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='379666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='381666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='382666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='383666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='384666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='385666' />
+              <groupfilter from='386660' function='range' level='[none:userId:ok]' to='386669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='387666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='388666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='389666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='390666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='391666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='392666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='393666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='394666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='395666' />
+              <groupfilter from='396660' function='range' level='[none:userId:ok]' to='396669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='397666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='398666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='399666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='400666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='402666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='403666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='405666' />
+              <groupfilter from='406660' function='range' level='[none:userId:ok]' to='406669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='407666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='408666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='409666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='410666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='411666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='412666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='413666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='414666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='415666' />
+              <groupfilter from='416660' function='range' level='[none:userId:ok]' to='416669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='417666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='418666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='419666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='420666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='421666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='422666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='423666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='424666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='425666' />
+              <groupfilter from='426660' function='range' level='[none:userId:ok]' to='426669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='427666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='429666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='430666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='431666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='432666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='433666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='434666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='435666' />
+              <groupfilter from='436660' function='range' level='[none:userId:ok]' to='436668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='437666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='438666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='439666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='440666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='441666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='442666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='443666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='444666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='445666' />
+              <groupfilter from='446661' function='range' level='[none:userId:ok]' to='446669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='447666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='448666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='449666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='451666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='452666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='453666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='454666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='455666' />
+              <groupfilter from='456660' function='range' level='[none:userId:ok]' to='456669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='457666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='458666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='459666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='460666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='461666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='462666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='463666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='464666' />
+              <groupfilter from='466601' function='range' level='[none:userId:ok]' to='466699' />
+              <groupfilter function='member' level='[none:userId:ok]' member='467666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='468666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='469666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='470666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='471666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='472666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='473666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='474666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='475666' />
+              <groupfilter from='476660' function='range' level='[none:userId:ok]' to='476669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='477666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='478666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='479666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='480666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='481666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='482666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='483666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='484666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='485666' />
+              <groupfilter from='486660' function='range' level='[none:userId:ok]' to='486669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='487666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='488666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='489666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='490666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='491666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='492666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='493666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='494666' />
+              <groupfilter from='496660' function='range' level='[none:userId:ok]' to='496669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='498666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='499666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='500666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='501666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='502666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='503666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='504666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='505666' />
+              <groupfilter from='506660' function='range' level='[none:userId:ok]' to='506669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='507666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='508666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='509666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='510666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='511666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='512666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='513666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='514666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='515666' />
+              <groupfilter from='516661' function='range' level='[none:userId:ok]' to='516669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='517666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='518666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='519666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='521666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='522666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='523666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='524666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='525666' />
+              <groupfilter from='526660' function='range' level='[none:userId:ok]' to='526669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='527666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='528666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='529666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='530666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='531666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='532666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='533666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='534666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='535666' />
+              <groupfilter from='536660' function='range' level='[none:userId:ok]' to='536669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='537666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='538666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='539666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='540666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='542666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='543666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='544666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='545666' />
+              <groupfilter from='546660' function='range' level='[none:userId:ok]' to='546669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='547666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='548666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='549666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='550666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='552666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='555666' />
+              <groupfilter from='556662' function='range' level='[none:userId:ok]' to='556668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='559666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='560666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='561666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='562666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='563666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='564666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='565666' />
+              <groupfilter from='566600' function='range' level='[none:userId:ok]' to='566699' />
+              <groupfilter function='member' level='[none:userId:ok]' member='567666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='568666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='569666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='570666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='571666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='572666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='573666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='574666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='575666' />
+              <groupfilter from='576660' function='range' level='[none:userId:ok]' to='576669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='577666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='578666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='579666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='580666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='581666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='582666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='583666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='584666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='585666' />
+              <groupfilter from='586660' function='range' level='[none:userId:ok]' to='586669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='587666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='588666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='589666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='590666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='592666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='593666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='594666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='595666' />
+              <groupfilter from='596660' function='range' level='[none:userId:ok]' to='596669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='599666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='600666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='601666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='602666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='603666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='604666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='605666' />
+              <groupfilter from='606660' function='range' level='[none:userId:ok]' to='606669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='607666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='608666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='610666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='611666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='612666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='613666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='615666' />
+              <groupfilter from='616660' function='range' level='[none:userId:ok]' to='616669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='617666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='618666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='619666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='620666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='621666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='622666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='623666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='625666' />
+              <groupfilter from='626660' function='range' level='[none:userId:ok]' to='626669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='627666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='628666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='629666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='630666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='631666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='632666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='633666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='634666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='635666' />
+              <groupfilter from='636662' function='range' level='[none:userId:ok]' to='636669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='637666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='643666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='644666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='645666' />
+              <groupfilter from='646660' function='range' level='[none:userId:ok]' to='646669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='647666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='648666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='649666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='650666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='651666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='652666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='653666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='654666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='655666' />
+              <groupfilter from='656660' function='range' level='[none:userId:ok]' to='656669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='657666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='660666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='662666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='663666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='664666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='665666' />
+              <groupfilter from='666000' function='range' level='[none:userId:ok]' to='666999' />
+              <groupfilter function='member' level='[none:userId:ok]' member='667666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='668666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='669666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='670666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='671666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='672666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='673666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='674666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='675666' />
+              <groupfilter from='676660' function='range' level='[none:userId:ok]' to='676669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='677666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='678666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='679666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='680666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='682666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='683666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='684666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='685666' />
+              <groupfilter from='686660' function='range' level='[none:userId:ok]' to='686669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='687666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='688666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='689666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='690666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='691666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='692666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='694666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='695666' />
+              <groupfilter from='696660' function='range' level='[none:userId:ok]' to='696669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='697666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='698666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='699666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='700666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='701666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='702666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='703666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='704666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='705666' />
+              <groupfilter from='706660' function='range' level='[none:userId:ok]' to='706669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='707666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='708666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='709666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='710666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='711666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='712666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='713666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='714666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='715666' />
+              <groupfilter from='716660' function='range' level='[none:userId:ok]' to='716668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='717666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='718666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='720666' />
+              <groupfilter from='726660' function='range' level='[none:userId:ok]' to='726668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='727666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='728666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='729666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='730666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='731666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='732666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='733666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='734666' />
+              <groupfilter from='736660' function='range' level='[none:userId:ok]' to='736669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='737666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='738666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='739666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='740666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='741666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='742666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='743666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='744666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='745666' />
+              <groupfilter from='746660' function='range' level='[none:userId:ok]' to='746668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='747666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='748666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='749666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='750666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='751666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='752666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='753666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='754666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='755666' />
+              <groupfilter from='756660' function='range' level='[none:userId:ok]' to='756669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='757666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='758666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='759666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='760666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='761666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='762666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='763666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='764666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='765666' />
+              <groupfilter from='766600' function='range' level='[none:userId:ok]' to='766699' />
+              <groupfilter function='member' level='[none:userId:ok]' member='767666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='768666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='769666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='770666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='771666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='772666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='773666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='774666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='775666' />
+              <groupfilter from='776660' function='range' level='[none:userId:ok]' to='776669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='777666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='778666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='780666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='781666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='782666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='783666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='784666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='785666' />
+              <groupfilter from='786660' function='range' level='[none:userId:ok]' to='786669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='787666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='788666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='789666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='790666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='791666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='792666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='793666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='794666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='795666' />
+              <groupfilter from='796660' function='range' level='[none:userId:ok]' to='796669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='797666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='798666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='799666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='800666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='801666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='802666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='803666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='804666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='805666' />
+              <groupfilter from='806660' function='range' level='[none:userId:ok]' to='806669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='807666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='808666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='809666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='810666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='811666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='812666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='813666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='814666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='815666' />
+              <groupfilter from='816660' function='range' level='[none:userId:ok]' to='816669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='817666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='818666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='819666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='820666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='821666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='822666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='823666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='824666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='825666' />
+              <groupfilter from='826660' function='range' level='[none:userId:ok]' to='826669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='827666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='828666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='829666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='830666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='832666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='833666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='834666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='835666' />
+              <groupfilter from='836660' function='range' level='[none:userId:ok]' to='836669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='837666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='838666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='839666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='840666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='841666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='842666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='843666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='844666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='845666' />
+              <groupfilter from='846660' function='range' level='[none:userId:ok]' to='846669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='847666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='848666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='849666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='850666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='851666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='852666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='854666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='855666' />
+              <groupfilter from='856660' function='range' level='[none:userId:ok]' to='856669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='857666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='858666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='859666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='860666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='861666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='862666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='863666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='864666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='865666' />
+              <groupfilter from='866600' function='range' level='[none:userId:ok]' to='866699' />
+              <groupfilter function='member' level='[none:userId:ok]' member='867666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='868666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='869666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='870666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='871666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='872666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='874666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='875666' />
+              <groupfilter from='876660' function='range' level='[none:userId:ok]' to='876669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='877666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='878666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='879666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='880666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='881666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='882666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='883666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='884666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='885666' />
+              <groupfilter from='886661' function='range' level='[none:userId:ok]' to='886669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='887666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='888666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='889666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='890666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='891666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='892666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='893666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='894666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='895666' />
+              <groupfilter from='896660' function='range' level='[none:userId:ok]' to='896669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='897666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='898666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='899666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='900666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='901666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='902666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='903666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='904666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='905666' />
+              <groupfilter from='906661' function='range' level='[none:userId:ok]' to='906669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='908666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='909666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='910666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='911666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='912666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='913666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='914666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='915666' />
+              <groupfilter from='916660' function='range' level='[none:userId:ok]' to='916669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='917666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='918666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='920666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='921666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='922666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='923666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='924666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='925666' />
+              <groupfilter from='926660' function='range' level='[none:userId:ok]' to='926668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='927666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='928666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='930666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='933666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='936665' />
+              <groupfilter function='member' level='[none:userId:ok]' member='936666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='937666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='938666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='939666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='941666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='944666' />
+              <groupfilter from='946660' function='range' level='[none:userId:ok]' to='946669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='947666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='949666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='950666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='951666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='953666' />
+              <groupfilter from='956661' function='range' level='[none:userId:ok]' to='956669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='958666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='962666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='963666' />
+              <groupfilter from='966602' function='range' level='[none:userId:ok]' to='966698' />
+              <groupfilter function='member' level='[none:userId:ok]' member='971666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='975666' />
+              <groupfilter from='976660' function='range' level='[none:userId:ok]' to='976669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='977666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='978666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='979666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='980666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='981666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='982666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='983666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='984666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='985666' />
+              <groupfilter from='986661' function='range' level='[none:userId:ok]' to='986669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='987666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='988666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='989666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='990666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='991666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='992666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='993666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='994666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='995666' />
+              <groupfilter from='996660' function='range' level='[none:userId:ok]' to='996669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='999666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1000666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1002666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1003666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1004666' />
+              <groupfilter from='1006660' function='range' level='[none:userId:ok]' to='1006668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1008666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1009666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1010666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1011666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1012666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1013666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1014666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1015666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1016661' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1016664' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1017666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1022666' />
+              <groupfilter from='1026660' function='range' level='[none:userId:ok]' to='1026669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1027666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1028666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1029666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1030666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1032666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1033666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1035666' />
+              <groupfilter from='1036660' function='range' level='[none:userId:ok]' to='1036668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1037666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1039666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1042666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1045666' />
+              <groupfilter from='1046660' function='range' level='[none:userId:ok]' to='1046669' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1047666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1049666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1050666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1051666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1052666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1054666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1055666' />
+              <groupfilter from='1056662' function='range' level='[none:userId:ok]' to='1056668' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1057666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1058666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1059666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1060666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1061666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1063666' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1064666' />
+              <groupfilter from='1066601' function='range' level='[none:userId:ok]' to='1066699' />
+              <groupfilter function='member' level='[none:userId:ok]' member='1067666' />
+            </groupfilter>
+          </filter>
+          <sort class='natural' column='[bigquery.41899.686085347224].[none:userId:ok]' direction='ASC' />
+          <slices>
+            <column>[bigquery.41899.686085347224].[none:userId:ok]</column>
+            <column>[bigquery.41899.686085347224].[none:description:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='header'>
+            <format attr='width' field='[bigquery.41899.686085347224].[none:description:nk]' value='352' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[bigquery.41899.686085347224].[sum:Number of Records:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[bigquery.41899.686085347224].[none:description:nk]</rows>
+        <cols>[bigquery.41899.686085347224].[none:userId:ok]</cols>
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows>
+    <window class='schema' source-height='-1' />
+    <window auto-hidden='0' class='worksheet' maximized='1' name='how some people use JDT'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='31'>
+            <card type='columns' />
+          </strip>
+          <strip size='31'>
+            <card type='rows' />
+          </strip>
+        </edge>
+      </cards>
+      <highlight>
+        <color-one-way>
+          <field>[bigquery.41899.686085347224].[none:description:nk]</field>
+          <field>[bigquery.41899.686085347224].[none:userId:ok]</field>
+        </color-one-way>
+      </highlight>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='how some people use JDT' width='192'>
+      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
+      SUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
