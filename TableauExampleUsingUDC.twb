@@ -6,7 +6,7 @@
   </preferences>
   <datasources>
     <datasource caption='dated_commands (udc)' inline='true' name='bigquery.41901.674401828706' version='8.2'>
-      <connection CATALOG='udc-data' Catalog='' ClientId='' ClientSecret='' EXECCATALOG='' authentication='yes' bq_schema='udc' class='bigquery' connection-dialect='google-bql' odbc-connect-string-extras='Description=Sample Simba BigQuery DSN' odbc-driver='Simba BigQuery ODBC Driver' odbc-dsn='' project='Eclipse Usage Data Collector    (udc-data)' schema='udc' server-oauth='' table='dated_commands' tablename='dated_commands' username='captain.emerson@gmail.com'>
+      <connection CATALOG='udc-data' Catalog='' ClientId='' ClientSecret='' EXECCATALOG='' authentication='yes' bq_schema='udc' class='bigquery' connection-dialect='google-bql' odbc-connect-string-extras='Description=Sample Simba BigQuery DSN' odbc-driver='Simba BigQuery ODBC Driver' odbc-dsn='' project='udc-data' schema='udc' server-oauth='' table='dated_commands' tablename='dated_commands' username='captain.emerson@gmail.com'>
         <relation name='dated_commands' table='[udc-data:udc].[dated_commands]' type='table' />
       </connection>
       <aliases enabled='yes' />
