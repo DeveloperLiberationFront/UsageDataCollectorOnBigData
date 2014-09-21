@@ -88,10 +88,12 @@ Thanks to Wayne Beaton for his work on the UDC project and Mohsen Vakilian for t
 
 If you use this BigData in your research, please cite the following forthcoming book chapter:
 
-`@inbook{snipesASD,`
-`author = {Will Snipes and Emerson Murphy-Hill and Thomas Fritz and Mohsen Vakilian and Kostadin Damevski and Anil R. Nair and David Shepherd},`
-`publisher = {Morgan Kaufmann},`
-`chapter= {A Practical Guide to Analyzing IDE Usage Data},`
-`title = {Analyzing Software Data},`
-`year = 2014`
-`}`
+```
+@inbook{SnipesETALASD,
+  author = {Will Snipes and Emerson Murphy-Hill and Thomas Fritz and Mohsen Vakilian and Kostadin Damevski and Anil R. Nair and David Shepherd},
+  publisher = {Morgan Kaufmann},
+  chapter= {A Practical Guide to Analyzing IDE Usage Data},
+  title = {Analyzing Software Data},
+  year = 2014
+}
+```
