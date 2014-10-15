@@ -94,6 +94,6 @@ If you use this BigData in your research, please cite the following forthcoming 
   publisher = {Morgan Kaufmann},
   chapter= {A Practical Guide to Analyzing IDE Usage Data},
   title = {Analyzing Software Data},
-  year = 2014
+  year = 2015
 }
 ```
